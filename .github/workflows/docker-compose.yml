@@ -26,6 +26,7 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
         tag_name: lpad
         name: ${{ github.sha }}
         files: lpadesktop.zip
