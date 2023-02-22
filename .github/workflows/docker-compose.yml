@@ -7,11 +7,10 @@ on:
   pull_request:
     branches: [ "master" ]
 
-permissions: read-all|write-all
-
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions: read-all|write-all
     steps:
     - uses: actions/checkout@v3
     
