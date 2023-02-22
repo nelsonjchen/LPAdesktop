@@ -31,3 +31,9 @@ jobs:
         tag: ${{ github.ref }}
         name: ${{ github.sha }}
         file_glob: true
+
+    - name: Deliver
+      uses: actions/upload-artifact@v2
+      with:
+        name: Deliver
+        path: ./target
