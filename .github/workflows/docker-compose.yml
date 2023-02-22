@@ -21,11 +21,13 @@ jobs:
       
     - name: zip artifacts
       run: zip lpadesktop.zip -r target
-      
-    - name: Release
-      uses: softprops/action-gh-release@v1
+
+    - name: Upload release asset
+      if: github.event == 'release'
+      uses: svenstaro/upload-release-action@v2
       with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        tag_name: lpad
+        repo_token: ${{ secrets.YOURTOKEN }}
+        file: lpadesktop.zip
+        tag: ${{ github.ref }}
         name: ${{ github.sha }}
-        files: lpadesktop.zip
+        file_glob: true
